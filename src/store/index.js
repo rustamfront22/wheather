@@ -28,7 +28,7 @@ export default createStore({
   actions: {
       async getWeather({commit, state}, city){
         try {
-          let res = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${state.apiKey}`)
+          let res = await axios.get(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${state.apiKey}`)
           let weather = res.data[0]
           let {lat, lon, name} = weather
           let res2 = await axios.get(`https://api.openweathermap.org/data/2.8/onecall?exclude=minutely,hourly&lat=${lat}&lon=${lon}&lang=ru&units=metric&appid=${state.apiKey}`)
